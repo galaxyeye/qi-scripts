@@ -31,7 +31,7 @@ function sync2one() {
   EXEC_CALL="rsync --update -raz --progress --exclude-from "$EXCLUDE_FILES" "$SOURCE_DIR" "$LOGIN_USERNAME@"$1":$TARGET_DIR
 
   echo $EXEC_CALL
-  # exec $EXEC_CALL
+  exec $EXEC_CALL &
 }
 
 for TARGET_HOST in $TARGET_HOSTNAMES
