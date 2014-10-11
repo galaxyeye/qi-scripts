@@ -1,0 +1,7 @@
+*.log
+*.out
+*svn*
+*git*
+*.exe
+*.bat
+*.job
