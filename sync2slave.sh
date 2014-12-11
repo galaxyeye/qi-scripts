@@ -4,6 +4,10 @@ DEV_HOSTNAME="regulus"
 MASTER="master"
 SLAVES="slave1 slave2 slave3"
 
+# for i in `cat slaves`; do \
+#   SLAVES=$SLAVES." ".i
+# done
+
 PROJECT_NAME="$1"
 
 # if no args specified, show usage

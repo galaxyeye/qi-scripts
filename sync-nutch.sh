@@ -5,7 +5,7 @@ MASTER="master"
 SLAVES="slave1 slave2 slave3"
 
 EXCLUDE_FILES=$HOME"/bin/exclude-list.txt"
-SOURCE_DIR=$HOME"/workspace/apache-nutch-2.3.0-src/runtime"
+SOURCE_DIR=$HOME"/workspace/apache-nutch-2.3.0-src/runtime/local"
 
 if [ `hostname` != "$DEV_HOSTNAME" ]; then
   echo "this script must run from deploy machine"

@@ -18,9 +18,9 @@ echo "start ibus..."
 ibus-daemon 2> /dev/null &
 sleep 1
 
-echo "start chrome..."
-chromium-browser 2> /dev/null &
-sleep 3
+# echo "start chrome..."
+# chromium-browser 2> /dev/null &
+# sleep 3
 
 echo "start gedit..."
 gedit 2> /dev/null &
@@ -32,7 +32,7 @@ sleep 1
 
 echo "start satellite..."
 cd $SATELLITE_HOME
-./bin/phantomjs --load-images=false src/server.js 2> /dev/null &
+# ./bin/phantomjs --load-images=false src/server.js 2> /dev/null &
 cd
 sleep 3
 

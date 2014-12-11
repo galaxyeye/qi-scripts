@@ -1,7 +1,13 @@
 #bin 
 
+function pause() {
+   read -p "$*"
+}
+
 SATELLITE_HOME=~/satellite
 SATELLITE_BIN=$SATELLITE_HOME/bin
+SATELLITE_LOG=$SATELLITE_HOME/logs
+SATELLITE_OUTPUT=$SATELLITE_HOME/output
 SATELLITE=$SATELLITE_BIN/satellite
 
 cd $SATELLITE_HOME
@@ -18,12 +24,11 @@ function pps_all() {
    echo '------------------'
 }
 
-function rstart_satellite() {
-   rsh $1 $SATELLITE start > /dev/null &
+function rdelete_old_logs() {
+   rsh $1 find $SATELLITE_LOG $SATELLITE_OUTPUT -mtime +2 -a -type f -print -delete
 }
 
-pps_all
-echo -n 'Are you sure to start satellites?N'
+echo -n 'Are you sure to clear satellite logs?N'
 #read command
 #if [ $command!="Y" ] && [ $command!="y" ] ; then
 #  $command = "N"
@@ -31,15 +36,10 @@ echo -n 'Are you sure to start satellites?N'
 #  exit 0
 #if
 
-echo 'Starting satellite...'
+echo 'Clear satellite logs...'
 
-rstart_satellite slave1
-sleep 3
-rstart_satellite slave2
-sleep 3
-rstart_satellite slave3
-
-# wait for a while
-sleep 3
+rdelete_old_logs slave1
+rdelete_old_logs slave2
+rdelete_old_logs slave3
 
 pps_all

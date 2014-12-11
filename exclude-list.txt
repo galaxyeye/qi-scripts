@@ -1,6 +1,14 @@
 *.log
+*.log.*
 *.out
+*.out.*
+
 *svn*
 *git*
 *.exe
 *.bat
+*~
+*.bak
+*satellite/output*
+*scent/output*
+
