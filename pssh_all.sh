@@ -6,5 +6,5 @@ if [ $# = 0 ]; then
   exit 1
 fi
 
-parallel-ssh -i -h .pssh/all $*
+parallel-ssh -i -h ~/.pssh/all $*
 
