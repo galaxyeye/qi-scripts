@@ -1,10 +1,10 @@
 #bin
 
-HBASE_HOME=~/programs/hbase-0.94.24
+HBASE_HOME=~/programs/hbase-0.98.8
 # SOLR_HOME=~/programs/solr-4.10.3
 # SATELLITE_HOME=~/workspace/satellite
-SCENT_HOME=~/workspace/qiwur-scent-1.0.0-src
-NUTCH_HOME=~/workspace/apache-nutch-2.3.0-src
+# SCENT_HOME=~/workspace/qiwur-scent-1.0.0-src
+# NUTCH_HOME=~/workspace/apache-nutch-2.3.0-src
 
 # enter the home directory
 cd 
@@ -61,16 +61,17 @@ fi
 SCENT="$SCENT_HOME/bin/scent"
 if [ -x $SCENT ]; then
   echo "start scent..."
-  gnome-terminal --tab -e $SCENT scentserver
+  gnome-terminal --tab -e "$SCENT scentserver"
   sleep 3
   gnome-terminal --tab -e "less logs/scent.log"
 fi
 
 NUTCH="$NUTCH_HOME/runtime/local/bin/nutch"
-if [ -x $HBASE ]; then
+if [ -x $NUTCH ]; then
     # TODO : wait for hbase available
     sleep 5
     echo "start nutch server"
+    
     gnome-terminal --tab -e "$NUTCH nutchserver"
     sleep 3
 fi

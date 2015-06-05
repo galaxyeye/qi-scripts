@@ -1,7 +1,7 @@
 #bin
 
 HADOOP_HOME=~/hadoop-2.5.2
-HBASE_HOME=~/hbase-0.94.24
+HBASE_HOME=~/hbase-0.98.12
 NUTCH_HOME=~/nutch-2.3.0/local
 HOST_NAME=`hostname`
 

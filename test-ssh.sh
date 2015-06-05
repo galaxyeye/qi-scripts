@@ -18,7 +18,7 @@
 # ssh slave3
 
 ssh galaxyeye
-ssh AY13111911344340719cZ
-ssh AY130905142707189974Z
 ssh AY1406091839351066b4Z
+ssh iZ23askweezZ
+ssh iZ23leo5g5uZ
 

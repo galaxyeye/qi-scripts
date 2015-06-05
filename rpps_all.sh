@@ -14,3 +14,15 @@ rpps slave2
 echo
 echo 'save3 : '
 rpps slave3
+
+
+echo
+echo 'satellite : '
+rpps satellite
+echo
+echo 'satellite2 : '
+rpps satellite2
+echo
+echo 'satellite3 : '
+rpps satellite3
+

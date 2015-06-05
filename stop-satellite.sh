@@ -20,6 +20,15 @@ function pps_all() {
    echo 'save3 : '
    rsh slave3 $SATELLITE pps
    echo '------------------'
+   echo 'satellite : '
+   rsh satellite $SATELLITE pps
+   echo '------------------'
+   echo 'satellite2 : '
+   rsh satellite2 $SATELLITE pps
+   echo '------------------'
+   echo 'satellite3 : '
+   rsh satellite3 $SATELLITE pps
+   echo '------------------'
 }
 
 function rstop_satellite() {
@@ -41,4 +50,9 @@ rstop_satellite slave1
 rstop_satellite slave2
 rstop_satellite slave3
 
+rstop_satellite satellite
+rstop_satellite satellite2
+rstop_satellite satellite3
+
 pps_all
+

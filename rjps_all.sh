@@ -3,7 +3,7 @@
 echo 'running process : '
 echo 
 echo 'master : '
-jps
+rsh master jps
 echo
 echo 'slave1 : '
 rsh slave1 jps

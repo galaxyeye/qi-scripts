@@ -16,6 +16,16 @@ function pps_all() {
    echo 'save3 : '
    rsh slave3 $SATELLITE pps
    echo '------------------'
+
+   echo 'satellite : '
+   rsh satellite $SATELLITE pps
+   echo '------------------'
+   echo 'satellite2 : '
+   rsh satellite2 $SATELLITE pps
+   echo '------------------'
+   echo 'satellite3 : '
+   rsh satellite3 $SATELLITE pps
+   echo '------------------'
 }
 
 function rstart_satellite() {
@@ -38,8 +48,15 @@ sleep 3
 rstart_satellite slave2
 sleep 3
 rstart_satellite slave3
+sleep 3
+rstart_satellite satellite
+sleep 3
+rstart_satellite satellite2
+sleep 3
+rstart_satellite satellite3
 
 # wait for a while
 sleep 3
 
 pps_all
+

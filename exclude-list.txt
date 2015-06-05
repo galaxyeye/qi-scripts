@@ -2,6 +2,7 @@
 *.log.*
 *.out
 *.out.*
+*logs/userlogs*
 
 *svn*
 *git*
@@ -10,5 +11,9 @@
 *~
 *.bak
 *satellite/output*
-*scent/output*
+*qiwur-scent-1.0.0-src*.jar
+*qiwur-scent-1.0.0-src*.class
+*qiwur-scent-1.0.0-src*.htm
+
+
 
