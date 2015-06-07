@@ -1,3 +1,7 @@
 #bin
 
-~/hadoop-1.2.1/bin/hadoop dfsadmin -report
+HADOOP_VERSION=2.5.2
+HADOOP_HOME="$HOME/hadoop-$HADOOP_VERSION"
+
+$HADOOP_HOME/bin/hadoop dfsadmin -report
+

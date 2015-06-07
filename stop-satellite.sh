@@ -10,26 +10,7 @@ SATELLITE=$SATELLITE_BIN/satellite
 
 cd $SATELLITE_HOME
 
-function pps_all() {
-   echo '------------------'
-   echo 'running process : '
-   echo 'slave1 : '
-   rsh slave1 $SATELLITE pps
-   echo 'slave2 : '
-   rsh slave2 $SATELLITE pps
-   echo 'save3 : '
-   rsh slave3 $SATELLITE pps
-   echo '------------------'
-   echo 'satellite : '
-   rsh satellite $SATELLITE pps
-   echo '------------------'
-   echo 'satellite2 : '
-   rsh satellite2 $SATELLITE pps
-   echo '------------------'
-   echo 'satellite3 : '
-   rsh satellite3 $SATELLITE pps
-   echo '------------------'
-}
+$HOME/bin/rpps_all.sh
 
 function rstop_satellite() {
    # cd $SATELLITE_HOME
@@ -46,13 +27,12 @@ echo -n 'Are you sure to start satellites?N'
 
 echo 'Stop satellite...'
 
-rstop_satellite slave1
-rstop_satellite slave2
-rstop_satellite slave3
-
 rstop_satellite satellite
 rstop_satellite satellite2
 rstop_satellite satellite3
+rstop_satellite satellite4
+rstop_satellite satellite5
+rstop_satellite satellite6
 
-pps_all
+$HOME/bin/rpps_all.sh
 

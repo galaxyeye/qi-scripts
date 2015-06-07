@@ -5,16 +5,6 @@ function rpps() {
 }
 
 echo 'running process : '
-echo
-echo 'slave1 : '
-rpps slave1
-echo
-echo 'slave2 : '
-rpps slave2
-echo
-echo 'save3 : '
-rpps slave3
-
 
 echo
 echo 'satellite : '
@@ -25,4 +15,13 @@ rpps satellite2
 echo
 echo 'satellite3 : '
 rpps satellite3
+echo
+echo 'satellite4 : '
+rpps satellite4
+echo
+echo 'satellite5 : '
+rpps satellite5
+echo
+echo 'satellite6 : '
+rpps satellite6
 
