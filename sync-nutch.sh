@@ -23,17 +23,18 @@ SYNC_TYPE=$1
 
 EXCLUDE_FILES=$HOME"/bin/exclude-list.txt"
 
-SOURCE="$NUTCH_HOME/runtime/deploy"
-if [ $SYNC_TYPE = "LOCAL" ]; then
-  SOURCE="$NUTCH_HOME/runtime/local"
-fi
-
 DESTINATION="hduser@$MASTER:~/nutch-$NUTCH_VERSION"
 
-if [ -e "$SOURCE" ]; then
+if [ $SYNC_TYPE = "LOCAL" ]; then
+  SOURCE="$NUTCH_HOME/runtime/local"
   rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE $DESTINATION
+elif [ $SYNC_TYPE = "JOB" ]; then
+  SOURCE="$NUTCH_HOME/runtime/deploy"
+  rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE $DESTINATION  
 else
-  echo "$SOURCE does not exist"
-  exit 1
+  SOURCE="$NUTCH_HOME/runtime/local"
+  rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE $DESTINATION
+  SOURCE="$NUTCH_HOME/runtime/deploy"
+  rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE $DESTINATION  
 fi
 

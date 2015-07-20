@@ -17,9 +17,10 @@ echo "start firefox..."
 firefox 2> /dev/null &
 sleep 1
 
-echo "start ibus..."
-ibus-daemon 2> /dev/null &
-sleep 1
+# echo "start ibus..."
+# we use fcitx to support sogou pinyin
+# ibus-daemon 2> /dev/null &
+# sleep 1
 
 # echo "start chrome..."
 # chromium-browser 2> /dev/null &
