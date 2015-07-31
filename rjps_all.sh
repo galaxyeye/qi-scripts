@@ -1,5 +1,6 @@
 #bin 
 
+BIN=$HOME"/bin"
 MASTER=`cat $BIN/conf/master`
 SLAVES=`cat $BIN/conf/slaves`
 

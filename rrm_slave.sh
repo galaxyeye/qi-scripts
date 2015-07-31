@@ -1,5 +1,6 @@
 #bin
 
+BIN=$HOME"/bin"
 SLAVES=`cat $BIN/conf/slaves`
 SLAVE_USER=`cat $BIN/conf/slave-user`
 
