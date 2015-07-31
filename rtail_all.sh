@@ -17,3 +17,5 @@ call_rtail_all hduser@master
 call_rtail_all hduser@slave1
 call_rtail_all hduser@slave2
 call_rtail_all hduser@slave3
+call_rtail_all hduser@slave4
+

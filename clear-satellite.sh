@@ -1,32 +1,14 @@
 #bin 
 
-function pause() {
-   read -p "$*"
-}
+BIN=$HOME/bin
+SATELLITES=`cat $BIN/conf/satellites`
+SATELLITE_USER=`cat $BIN/conf/satellite-user`
 
-SATELLITE_HOME=~/satellite
-SATELLITE_BIN=$SATELLITE_HOME/bin
+SATELLITE_HOME=$HOME/satellite
 SATELLITE_LOG=$SATELLITE_HOME/logs
-SATELLITE_OUTPUT=$SATELLITE_HOME/output
-SATELLITE=$SATELLITE_BIN/satellite
+SATELLITE_OUTPUT=$SATELLITE_OUTPUT/output
 
 cd $SATELLITE_HOME
-
-function pps_all() {
-   echo '------------------'
-   echo 'running process : '
-   echo 'slave1 : '
-   rsh slave1 $SATELLITE pps
-   echo 'slave2 : '
-   rsh slave2 $SATELLITE pps
-   echo 'save3 : '
-   rsh slave3 $SATELLITE pps
-   echo '------------------'
-}
-
-function rdelete_old_logs() {
-   rsh $1 find $SATELLITE_LOG $SATELLITE_OUTPUT -mtime +2 -a -type f -print -delete
-}
 
 echo -n 'Are you sure to clear satellite logs?N'
 #read command
@@ -38,8 +20,13 @@ echo -n 'Are you sure to clear satellite logs?N'
 
 echo 'Clear satellite logs...'
 
-rdelete_old_logs slave1
-rdelete_old_logs slave2
-rdelete_old_logs slave3
+for SATELLITE in $SATELLITES; do
+  echo $SATELLITE" :"
+  rsh $SATELLITE_USER@$SATELLITE find $SATELLITE_LOG $SATELLITE_OUTPUT -mtime +2 -a -type f -print -delete
+done
 
-pps_all
+for SATELLITE in $SATELLITES; do
+  echo $SATELLITE" :"
+  rsh $SATELLITE_USER@$SATELLITE ls -l $SATELLITE_LOG $SATELLITE_OUTPUT
+done
+

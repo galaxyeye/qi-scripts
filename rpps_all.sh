@@ -1,27 +1,11 @@
 #bin 
 
-function rpps() {
-  rsh $1 ~/satellite/bin/satellite pps
-}
+BIN=$HOME/bin
+SATELLITES=`cat $BIN/conf/satellites`
+SATELLITE_USER=`cat $BIN/conf/satellite-user`
 
-echo 'running process : '
-
-echo
-echo 'satellite : '
-rpps satellite
-echo
-echo 'satellite2 : '
-rpps satellite2
-echo
-echo 'satellite3 : '
-rpps satellite3
-echo
-echo 'satellite4 : '
-rpps satellite4
-echo
-echo 'satellite5 : '
-rpps satellite5
-echo
-echo 'satellite6 : '
-rpps satellite6
+for SATELLITE in $SATELLITES; do
+  echo $SATELLITE" :"
+  rsh $SATELLITE_USER@$SATELLITE $HOME/satellite/bin/satellite pps
+done
 

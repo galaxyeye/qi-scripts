@@ -1,26 +1,36 @@
 #bin 
 
-DEV_HOSTNAME="regulus"
-MASTER="master"
-SLAVES="slave1 slave2 slave3"
-SATELLITES="satellite satellite2 satellite3"
+BIN=$HOME"/bin"
+DEV_HOSTNAME=`cat $BIN/conf/dev`
+MASTER=`cat $BIN/conf/master`
+SLAVES=`cat $BIN/conf/slaves`
+SATELLITES=`cat $BIN/conf/satellites`
 
-EXCLUDE_FILES=$HOME"/bin/exclude-list.txt"
-SOURCE_DIR=$HOME"/bin"
+MASTER_USER=`cat $BIN/conf/master-user`
+SLAVE_USER=`cat $BIN/conf/slave-user`
+SATELLITE_USER=`cat $BIN/conf/satellite-user`
+
+EXCLUDE_FILES=$BIN"/conf/exclude-list.txt"
+
+SOURCE_DIR=$BIN
 
 if [ `hostname` != "$DEV_HOSTNAME" ]; then
   echo "this script must run from deploy machine"
   exit 1
 fi
 
-rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR hduser@master:~/
-rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR hduser@slave1:~/
-rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR hduser@slave2:~/
-rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR hduser@slave3:~/
+echo "Start sync bin to the following machines : "
+echo $MASTER" "$SLAVES" "$SATELLITES
 
-rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR vincent@satellite:~/
-rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR vincent@satellite2:~/
-rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR vincent@satellite3:~/
+rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR $MASTER_USER@$MASTER:~/
 
-exit 0
+for SLAVE in $SLAVES; do
+  echo $SLAVE" :"
+  rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR $SLAVE_USER@$SLAVE:~/
+done
+
+for SATELLITE in $SATELLITES; do
+  echo $SATELLITE" :"
+  rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE_DIR $SATELLITE_USER@$SATELLITE:~/
+done
 

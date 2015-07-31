@@ -1,15 +1,15 @@
 #bin 
 
-echo 'running process : '
-echo 
-echo 'master : '
-df -h
-echo
-echo 'slave1 : '
-rsh slave1 df -h
-echo
-echo 'slave2 : '
-rsh slave2 df -h
-echo
-echo 'save3 : '
-rsh slave3 df -h
+MASTER=`cat $BIN/conf/master`
+SLAVES=`cat $BIN/conf/slaves`
+
+MASTER_USER=`cat $BIN/conf/master-user`
+SLAVE_USER=`cat $BIN/conf/slave-user`
+
+rsh $MASTER_USER@$MASTER df -h
+
+for SLAVE in $SLAVES; do
+  echo $SLAVE" :"
+  rsh $SLAVE_USER@$SLAVE df -h
+done
+

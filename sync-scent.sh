@@ -3,7 +3,6 @@
 # environment
 DEV_HOSTNAME="regulus"
 MASTER="master"
-SLAVES="slave1 slave2 slave3"
 
 # script config
 SCENT_VERSION=1.0.0

@@ -18,6 +18,7 @@ qiwur_rset_locale master
 qiwur_rset_locale slave1
 qiwur_rset_locale slave2
 qiwur_rset_locale slave3
+qiwur_rset_locale slave4
 
 echo 'Done.'
 

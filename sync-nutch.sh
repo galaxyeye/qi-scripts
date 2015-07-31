@@ -3,7 +3,7 @@
 # environment
 DEV_HOSTNAME="regulus"
 MASTER="master"
-SLAVES="slave1 slave2 slave3"
+SLAVES="slave1 slave2 slave3 slave4"
 
 # script config
 NUTCH_VERSION=2.3.0
