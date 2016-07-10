@@ -10,7 +10,7 @@ HBASE_HOME=~/programs/hbase-0.98.8
 cd 
 
 echo "start eclipse..."
-/opt/luna/eclipse 2> /dev/null  &
+/opt/eclipse/mars/eclipse > /dev/null 2>&1 &
 sleep 3
 
 echo "start firefox..."

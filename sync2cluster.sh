@@ -1,7 +1,7 @@
 #bin 
 
 BIN=$HOME"/bin"
-DEV_HOSTNAME=`cat $BIN/conf/dev`
+DEV_HOSTNAME_FILE=`$BIN/conf/devs`
 
 # if no args specified, show usage
 if [ $# = 0 ]; then
@@ -11,7 +11,8 @@ fi
 
 PROJECT_NAME="$1"
 SOURCE_DIR=$HOME"/$PROJECT_NAME"
-if [ "`hostname`" = "$DEV_HOSTNAME" ]; then
+
+if grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
   SOURCE_DIR=$HOME"/workspace/$PROJECT_NAME"
 fi
 

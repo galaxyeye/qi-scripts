@@ -9,7 +9,7 @@ if [ $# = 0 ]; then
 fi
 
 BIN=$HOME"/bin"
-DEV_HOSTNAME=`cat $BIN/conf/dev`
+DEV_HOSTNAME_FILE=`$BIN/conf/devs`
 MASTER=`cat $BIN/conf/master`
 MASTER_USER=`cat $BIN/conf/master-user`
 
@@ -18,6 +18,11 @@ EXCLUDE_FILES=$HOME"/bin/exclude-list.txt"
 SOURCE_DIR=$HOME"/workspace/$PROJECT_NAME"
 TARGET_DIR="~"
 TARGET_HOSTNAMES=$MASTER
+
+if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
+  echo "this script must run from deploy machine"
+  exit 1
+fi
 
 if [ ! -d "$SOURCE_DIR" ]; then
   echo "project directory $SOURCE_DIR does not exists"

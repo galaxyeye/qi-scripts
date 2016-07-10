@@ -10,19 +10,19 @@ ff02::2 ip6-allrouters
 
 # hosts
 10.160.51.162 galaxyeye
-10.162.98.162 AY1406091839351066b4Z
-10.252.139.119 iZ23askweezZ
-10.251.245.121 iZ23leo5g5uZ
-10.117.104.86  iZ23ekjydu2Z
+10.25.85.83    iZ235p20xpvZ
+10.25.85.71    iZ23y38tq9vZ
+10.25.241.235  iZ237ax7rsqZ
+10.25.84.55    iZ2303nxe7mZ
 
 # hadoop
 10.160.51.162  master
-10.162.98.162 slave1
-10.252.139.119 slave2
-10.251.245.121 slave3
-10.117.104.86  slave4
+10.25.85.83    slave1
+10.25.85.71    slave2
+10.25.241.235  slave3
+10.25.84.55    slave4
 
-10.168.54.179 iZ23froio7kZ satellite
-10.252.91.183 iZ23kgp5rs8Z satellite2
-10.171.195.142 iZ23mayyafmZ satellite3
+# 10.168.54.179 iZ23froio7kZ satellite
+# 10.252.91.183 iZ23kgp5rs8Z satellite2
+# 10.171.195.142 iZ23mayyafmZ satellite3
 

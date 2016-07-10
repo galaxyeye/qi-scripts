@@ -9,7 +9,6 @@ if [ $# = 0 ]; then
 fi
 
 BIN=$HOME"/bin"
-DEV_HOSTNAME=`cat $BIN/conf/dev`
 SLAVES=`cat $BIN/conf/slaves`
 SLAVE_USER=`cat $BIN/conf/slave-user`
 

@@ -1,7 +1,9 @@
 #bin
 
 # environment
-DEV_HOSTNAME="regulus"
+BIN=$HOME"/bin"
+DEV_HOSTNAME_FILE=`$BIN/conf/devs`
+
 MASTER="master"
 SLAVES="slave1 slave2 slave3 slave4"
 
@@ -9,7 +11,7 @@ SLAVES="slave1 slave2 slave3 slave4"
 NUTCH_VERSION=2.3.0
 NUTCH_HOME=$HOME"/workspace/qiwur-nutch-$NUTCH_VERSION"
 
-if [ `hostname` != "$DEV_HOSTNAME" ]; then
+if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
   echo "this script must run from deploy machine"
   exit 1
 fi

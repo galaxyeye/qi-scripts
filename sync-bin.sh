@@ -1,7 +1,7 @@
 #bin 
 
 BIN=$HOME"/bin"
-DEV_HOSTNAME=`cat $BIN/conf/dev`
+DEV_HOSTNAME_FILE=`$BIN/conf/devs`
 MASTER=`cat $BIN/conf/master`
 SLAVES=`cat $BIN/conf/slaves`
 SATELLITES=`cat $BIN/conf/satellites`
@@ -14,7 +14,7 @@ EXCLUDE_FILES=$BIN"/conf/exclude-list.txt"
 
 SOURCE_DIR=$BIN
 
-if [ `hostname` != "$DEV_HOSTNAME" ]; then
+if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
   echo "this script must run from deploy machine"
   exit 1
 fi

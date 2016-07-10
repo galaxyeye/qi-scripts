@@ -1,18 +1,20 @@
 #bin
 
 # environment
-DEV_HOSTNAME="regulus"
+BIN=$HOME"/bin"
+DEV_HOSTNAME_FILE=`$BIN/conf/devs`
+
 MASTER="master"
 
 # script config
-DATA_UI_HOME=$HOME"/workspace/qiwur-data-ui"
+DATA_UI_HOME=$HOME"/workspace/qiwur-ui"
 
-if [ `hostname` != "$DEV_HOSTNAME" ]; then
+if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
   echo "this script must run from deploy machine"
   exit 1
 fi
 
-EXCLUDE_FILES=$HOME"/bin/exclude-list.txt"
+EXCLUDE_FILES=$HOME"/bin/conf/exclude-list.txt"
 
 SOURCE=$DATA_UI_HOME
 DESTINATION="www-data@$MASTER:~/"

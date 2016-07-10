@@ -1,14 +1,16 @@
 #bin
 
 # environment
-DEV_HOSTNAME="regulus"
+BIN=$HOME"/bin"
+DEV_HOSTNAME_FILE=`$BIN/conf/devs`
+
 MASTER="master"
 
 # script config
 SCENT_VERSION=1.0.0
 SCENT_HOME=$HOME"/workspace/qiwur-scent-$SCENT_VERSION-src"
 
-if [ `hostname` != "$DEV_HOSTNAME" ]; then
+if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
   echo "this script must run from deploy machine"
   exit 1
 fi
