@@ -9,7 +9,7 @@ if [ $# = 0 ]; then
 fi
 
 BIN=$HOME"/bin"
-DEV_HOSTNAME_FILE=`$BIN/conf/devs`
+DEV_HOSTNAME_FILE="$BIN/conf/devs"
 MASTER=`cat $BIN/conf/master`
 MASTER_USER=`cat $BIN/conf/master-user`
 

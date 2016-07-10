@@ -1,7 +1,7 @@
 #bin 
 
 BIN=$HOME"/bin"
-DEV_HOSTNAME_FILE=`$BIN/conf/devs`
+DEV_HOSTNAME_FILE="$BIN/conf/devs"
 MASTER=`cat $BIN/conf/master`
 SLAVES=`cat $BIN/conf/slaves`
 SATELLITES=`cat $BIN/conf/satellites`

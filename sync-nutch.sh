@@ -2,7 +2,7 @@
 
 # environment
 BIN=$HOME"/bin"
-DEV_HOSTNAME_FILE=`$BIN/conf/devs`
+DEV_HOSTNAME_FILE="$BIN/conf/devs"
 
 MASTER="master"
 SLAVES="slave1 slave2 slave3 slave4"

@@ -1,7 +1,7 @@
 #bin 
 
 BIN=$HOME"/bin"
-DEV_HOSTNAME_FILE=`$BIN/conf/devs`
+DEV_HOSTNAME_FILE="$BIN/conf/devs"
 
 # if no args specified, show usage
 if [ $# = 0 ]; then
