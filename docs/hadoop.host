@@ -1,5 +1,5 @@
 127.0.0.1 localhost
-127.0.1.1       ubuntu
+127.0.1.1 ubuntu
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
@@ -8,21 +8,31 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
-# hosts
+# wiki (wiki server only)
+127.0.0.1 wiki.localhost
+127.0.0.1 data.localhost
+127.0.0.1 people.localhost
+
+# all hosts in the cluster (intranet ip address)
 10.160.51.162 galaxyeye
 10.25.85.83    iZ235p20xpvZ
 10.25.85.71    iZ23y38tq9vZ
 10.25.241.235  iZ237ax7rsqZ
 10.25.84.55    iZ2303nxe7mZ
+10.24.154.187  iZ23ocq7jaaZ
 
-# hadoop
+# hadoop  (intranet ip address)
 10.160.51.162  master
 10.25.85.83    slave1
 10.25.85.71    slave2
 10.25.241.235  slave3
 10.25.84.55    slave4
+10.24.154.187  slave5
 
-# 10.168.54.179 iZ23froio7kZ satellite
-# 10.252.91.183 iZ23kgp5rs8Z satellite2
-# 10.171.195.142 iZ23mayyafmZ satellite3
+# satellites  (intranet ip address)
+10.25.85.83    satellite1
+10.25.85.71    satellite2
+10.25.241.235  satellite3
+10.25.84.55    satellite4
+10.24.154.187  satellite5
 

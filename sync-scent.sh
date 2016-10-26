@@ -7,8 +7,8 @@ DEV_HOSTNAME_FILE="$BIN/conf/devs"
 MASTER="master"
 
 # script config
-SCENT_VERSION=1.0.0
-SCENT_HOME=$HOME"/workspace/qiwur-scent-$SCENT_VERSION-src"
+SCENT_HOME=$HOME"/workspace/qiwur-scent"
+SCENT_VERSION=`cat $SCENT_HOME/VERSION`
 
 if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
   echo "this script must run from deploy machine"
@@ -22,7 +22,7 @@ fi
 
 SYNC_TYPE=$1
 
-EXCLUDE_FILES=$HOME"/bin/exclude-list.txt"
+EXCLUDE_FILES=$HOME"/bin/conf/exclude-list.txt"
 
 SOURCE="$SCENT_HOME/scent-distribution/target/scent-distribution-$SCENT_VERSION-job.jar"
 if [ $SYNC_TYPE = "LOCAL" ]; then

@@ -1,18 +1,21 @@
 #bin
 
-HADOOP_HOME=~/hadoop-2.5.2
-HBASE_HOME=~/hbase-0.98.12
-NUTCH_HOME=~/nutch-2.3.0/local
+bin=`dirname "${BASH_SOURCE-$0}"`
+bin=`cd "$bin">/dev/null; pwd`
+
+ . "$bin"/detect-env.sh
+
 HOST_NAME=`hostname`
 
 function tail_grep() {
   FILENAME=$1
   if [ -f "$FILENAME" ]; then
-      echo 
-      echo "-------------------------------------------------------------------"
+      echo
       echo "errors in $1 : "
-      echo ""
-      tail $@ | grep -i '[error|fatal|warn|info]'
+      tail $@ | egrep -i 'error|fatal|warn'
+      echo "-------------"
+      echo "info in $1 : "
+      tail $@ | egrep -i 'info'
   fi
 }
 
@@ -25,6 +28,4 @@ tail_grep $HADOOP_HOME/logs/hadoop-hduser-jobtracker-"$HOST_NAME".log
 tail_grep $HBASE_HOME/logs/hbase-hduser-master-"$HOST_NAME".log
 tail_grep $HBASE_HOME/logs/hbase-hduser-regionserver-"$HOST_NAME".log
 tail_grep $HBASE_HOME/logs/hbase-hduser-zookeeper-"$HOST_NAME".log
-
-tail_grep $NUTCH_HOME/logs/hadoop.log
 

@@ -4,25 +4,14 @@ PROJECT_NAME="$1"
 
 # if no args specified, show usage
 if [ $# = 0 ]; then
-  echo "Usage: sync2slave project_name"
+  echo "Usage: $0 project_name"
   exit 1
 fi
 
-BIN=$HOME"/bin"
-DEV_HOSTNAME_FILE="$BIN/conf/devs"
+bin=`dirname "${BASH_SOURCE-$0}"`
+bin=`cd "$bin">/dev/null; pwd`
 
-SLAVES=`cat $BIN/conf/slaves`
-SLAVE_USER=`cat $BIN/conf/slave-user`
-
-TARGET_DIR="~"
-TARGET_HOSTNAMES=$SLAVES
-
-EXCLUDE_FILES=$HOME"/bin/exclude-list.txt"
-
-IS_DEV_HOST=false
-if grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
-  IS_DEV_HOST=true
-fi
+ . "$bin"/detect-env.sh
 
 SOURCE_DIR=$HOME"/$PROJECT_NAME"
 if $IS_DEV_HOST; then
@@ -34,6 +23,9 @@ if [ ! -d "$SOURCE_DIR" ]; then
   exit 1
 fi
 
+TARGET_DIR="~"
+TARGET_HOSTNAMES=$SLAVES
+
 function sync2one() {
   EXEC_CALL="rsync --update -raz --progress --exclude-from "$EXCLUDE_FILES" "$SOURCE_DIR" "$SLAVE_USER@"$1":$TARGET_DIR
 
@@ -42,7 +34,9 @@ function sync2one() {
 }
 
 for TARGET_HOST in $TARGET_HOSTNAMES
-do
+do  
+  echo 
+  echo "---------------------------"
   sync2one $TARGET_HOST
 done
 

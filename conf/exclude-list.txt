@@ -2,22 +2,32 @@
 *.log.*
 *.out
 *.out.*
-*logs/userlogs*
+*logs/userlogs/*
+*logs/SecurityAuth.audit
+*/.idea/*
 
-*svn*
-*git*
+*.svn*
+.git
+*.git/*
 *.exe
 *.bat
 *~
 *.bak
 *satellite/output/*
-*qiwur-scent-1.0.0-src*.jar
-*qiwur-scent-1.0.0-src*.class
-*qiwur-scent-1.0.0-src*.htm
+*qiwur-scent-*-src*.jar
+*qiwur-scent-*-src*.class
+*qiwur-scent-*-src*.htm
 
-*qiwur-data-ui/app/tmp/sessions/*
-*qiwur-data-ui/app/tmp/locks/*
+# qiwur-ui
+tmp/sessions/*
+tmp/locks/*
+tmp/cache/models/*
+tmp/cache/persistent/*
+tmp/cache/common/minute_/*
 
 bazel
 mvn3
+
+# nutch
+**/test/data/**
 

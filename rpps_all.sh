@@ -1,11 +1,15 @@
-#bin 
+#bin
 
-BIN=$HOME/bin
-SATELLITES=`cat $BIN/conf/satellites`
-SATELLITE_USER=`cat $BIN/conf/satellite-user`
+bin=`dirname "${BASH_SOURCE-$0}"`
+bin=`cd "$bin">/dev/null; pwd`
+
+ . "$bin"/detect-env.sh
 
 for SATELLITE in $SATELLITES; do
-  echo $SATELLITE" :"
-  rsh $SATELLITE_USER@$SATELLITE $HOME/satellite/bin/satellite pps
+  echo
+  echo $SATELLITE" :" 
+
+  rsh $SATELLITE_USER@$SATELLITE /home/$SATELLITE_USER/bin/pps.sh
+
 done
 

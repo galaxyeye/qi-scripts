@@ -13,9 +13,12 @@ else
   DIR=$1
 fi
 
+echo
+echo $MASTER" :"
 rsh $MASTER_USER@$MASTER ls -l $DIR
 
 for SLAVE in $SLAVES; do
+  echo
   echo $SLAVE" :"
   rsh $SLAVE_USER@$SLAVE ls -l $DIR
 done

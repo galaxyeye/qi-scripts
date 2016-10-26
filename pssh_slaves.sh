@@ -6,5 +6,7 @@ if [ $# = 0 ]; then
   exit 1
 fi
 
-parallel-ssh -i -h ~/.pssh/slaves $*
+BIN=$HOME"/bin"
+
+parallel-ssh -i -h $BIN/conf/slaves $*
 

@@ -13,10 +13,12 @@ BIN=$HOME"/bin"
 MASTER=`cat $BIN/conf/master`
 SLAVES=`cat $BIN/conf/slaves`
 SATELLITES=`cat $BIN/conf/satellites`
+HOST_NAMES=`cat $BIN/conf/host_names`
 
 ALL_HOSTS="$MASTER
 $SLAVES
-$SATELLITES"
+$SATELLITES
+$HOST_NAMES"
 
 for HOST in $ALL_HOSTS; do
   # echo "$REMOTE_USER@$HOST"

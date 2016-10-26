@@ -1,21 +1,21 @@
 #bin
 
+bin=`dirname "${BASH_SOURCE-$0}"`
+bin=`cd "$bin">/dev/null; pwd`
+
+ . "$bin"/detect-env.sh
+
 function call_rtail_all() {
   echo
   echo
+  echo "-------------------------------------------------------------------"
   echo "$1 : "
-  echo
-  rsh $1 ~/bin/tail_all_logs.sh
+  rsh $1 $bin/tail-all-logs.sh
 }
 
-echo "master : "
-echo
+call_rtail_all master
 
-~/bin/tail_all_logs.sh
-
-call_rtail_all hduser@master
-call_rtail_all hduser@slave1
-call_rtail_all hduser@slave2
-call_rtail_all hduser@slave3
-call_rtail_all hduser@slave4
+for SLAVE in $SLAVES; do
+  call_rtail_all "$SLAVE"
+done
 

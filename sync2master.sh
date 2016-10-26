@@ -13,7 +13,7 @@ DEV_HOSTNAME_FILE="$BIN/conf/devs"
 MASTER=`cat $BIN/conf/master`
 MASTER_USER=`cat $BIN/conf/master-user`
 
-EXCLUDE_FILES=$HOME"/bin/exclude-list.txt"
+EXCLUDE_FILES=$HOME"/bin/conf/exclude-list.txt"
 
 SOURCE_DIR=$HOME"/workspace/$PROJECT_NAME"
 TARGET_DIR="~"

@@ -21,17 +21,18 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
-# hosts
-112.124.50.35   master galaxyeye
+# all hosts in the cluster (internet ip address)
+112.124.50.35   master galaxyeye	
 118.178.18.153  slave1 iZ235p20xpvZ
 118.178.18.122  slave2 iZ23y38tq9vZ
 114.55.86.242   slave3 iZ237ax7rsqZ
 114.55.91.22    slave4 iZ2303nxe7mZ
+114.55.91.213   slave5 iZ23ocq7jaaZ
 
-# satellites
-# 121.40.214.25 iZ23froio7kZ satellite
-# 120.26.119.180 iZ23kgp5rs8Z satellite2
-# 121.40.118.89 iZ23mayyafmZ satellite3
-
-# 192.168.1.107 sirius
+# satellites (internet ip address)
+118.178.18.153  satellite1
+118.178.18.122  satellite2
+114.55.86.242   satellite3
+114.55.91.22    satellite4
+114.55.91.213  satellite5
 
