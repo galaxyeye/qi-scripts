@@ -7,7 +7,7 @@ DEV_HOSTNAME_FILE="$BIN/conf/devs"
 MASTER="master"
 
 # script config
-DATA_UI_HOME=$HOME"/workspace/media-ui"
+DATA_UI_HOME=$HOME"/workspace/monitor-ui"
 
 if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
   echo "this script must run from deploy machine"
@@ -16,8 +16,8 @@ fi
 
 EXCLUDE_FILES=$HOME"/bin/conf/exclude-list.txt"
 
-SOURCE=$DATA_UI_HOME
-DESTINATION="www-data@$MASTER:~/"
+SOURCE=$DATA_UI_HOME/*
+DESTINATION="www-data@$MASTER:~/media-ui/"
 
 rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE $DESTINATION
 

@@ -27,15 +27,15 @@ fi
 export IS_DEV_HOST=$IS_DEV_HOST
 
 if $IS_DEV_HOST; then
-  export SATELLITE_HOME=$WARPS_MACHINE_HOME/workspace/qiwur-satellite
+  export SATELLITE_HOME=$WARPS_MACHINE_HOME/workspace/warps-satellite
   export NUTCH_HOME=$WARPS_MACHINE_HOME/workspace/warps-nutch
   export SCENT_HOME=$WARPS_MACHINE_HOME/workspace/warps-scent
   export HADOOP_HOME=$WARPS_MACHINE_HOME/program/hadoop-2.5.2
   export HBASE_HOME=$WARPS_MACHINE_HOME/program/hbase-0.98.8
 else
-  export SATELLITE_HOME=$WARPS_MACHINE_HOME/qiwur-satellite
-  export NUTCH_HOME=$WARPS_MACHINE_HOME/qiwur-nutch
-  export SCENT_HOME=$WARPS_MACHINE_HOME/qiwur-scent
+  export SATELLITE_HOME=$WARPS_MACHINE_HOME/warps-satellite
+  export NUTCH_HOME=$WARPS_MACHINE_HOME/warps-nutch
+  export SCENT_HOME=$WARPS_MACHINE_HOME/warps-scent
   export HADOOP_HOME=$WARPS_MACHINE_HOME/hadoop-2.5.2
   export HBASE_HOME=$WARPS_MACHINE_HOME/hbase-0.98.8
 fi
