@@ -1,0 +1,33 @@
+*.log
+*.log.*
+*.out
+*.out.*
+*logs/userlogs/*
+*logs/SecurityAuth.audit
+*/.idea/*
+
+*.svn*
+.git
+*.git/*
+*.exe
+*.bat
+*~
+*.bak
+*satellite/output/*
+*qiwur-scent-*-src*.jar
+*qiwur-scent-*-src*.class
+*qiwur-scent-*-src*.htm
+
+# qiwur-ui
+tmp/sessions/*
+tmp/locks/*
+tmp/cache/models/*
+tmp/cache/persistent/*
+tmp/cache/common/minute_/*
+
+bazel
+mvn3
+
+# nutch
+**/test/data/**
+
