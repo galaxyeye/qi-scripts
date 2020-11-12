@@ -1,4 +1,4 @@
-#bin 
+#bin
 
 BIN=$HOME"/bin"
 MASTER=`cat $BIN/conf/master`
@@ -16,10 +16,9 @@ fi
 
 EXE=$1
 
-rsh $MASTER_USER@$MASTER $BIN/jpkill.sh -9 $EXE
+rsh "$MASTER_USER"@"$MASTER" "/home/$MASTER_USER/bin/jpkill.sh" -9 "$EXE"
 
 for SLAVE in $SLAVES; do
-  echo $SLAVE" :"
-  rsh $SLAVE_USER@$SLAVE $BIN/jpkill.sh -9 $EXE
+  echo "$SLAVE"" :"
+  rsh "$SLAVE_USER"@"$SLAVE" "/home/$SLAVE_USER/bin/jpkill.sh" -9 "$EXE"
 done
-

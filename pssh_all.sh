@@ -8,5 +8,4 @@ fi
 
 BIN=$HOME"/bin"
 
-parallel-ssh -i -h $BIN/conf/cluster $*
-
+parallel-ssh --user=ubuntu -i -h $BIN/conf/cluster $*
