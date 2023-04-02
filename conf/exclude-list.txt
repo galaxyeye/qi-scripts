@@ -5,6 +5,7 @@
 *logs/userlogs/*
 *logs/SecurityAuth.audit
 */.idea/*
+.idea
 
 *.svn*
 .git
@@ -17,6 +18,9 @@
 *qiwur-scent-*-src*.jar
 *qiwur-scent-*-src*.class
 *qiwur-scent-*-src*.htm
+*.xlsx
+*.xls
+*.class
 
 # qiwur-ui
 tmp/sessions/*

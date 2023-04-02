@@ -4,7 +4,14 @@
 BIN=$HOME"/bin"
 DEV_HOSTNAME_FILE="$BIN/conf/devs"
 
-CRAWLER1="crawler1"
+if [ $# -lt "2" ]; then
+  echo "sync-exotic-amazon.sh : usage: sync-exotic-amazon.sh HOST [PROJ|JAR]"
+  exit 1
+fi
+
+TARGET_HOST=$1
+shift;
+SYNC_TYPE=$1
 
 # script config
 EXOTIC_AMAZON_HOME=$HOME"/workspace/exotic-amazon-pro"
@@ -15,23 +22,16 @@ if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
   exit 1
 fi
 
-if [ $# = 0 ]; then
-  echo "sync-exotic-amazon.sh : usage: sync-exotic-amazon.sh [PROJ|JAR]"
-  exit 1
-fi
-
-SYNC_TYPE=$1
-
 EXCLUDE_FILES=$HOME"/bin/conf/exclude-list.txt"
 
 SOURCE="$EXOTIC_AMAZON_HOME/"
-DESTINATION="vincent@$CRAWLER1:~/exotic-amazon-pro/$EXOTIC_AMAZON_VERSION"
+DESTINATION="vincent@$TARGET_HOST:~/exotic-amazon-pro/$EXOTIC_AMAZON_VERSION"
 if [ $SYNC_TYPE = "JAR" ]; then
   SOURCE="$EXOTIC_AMAZON_HOME/target/exotic-amazon-$EXOTIC_AMAZON_VERSION.jar"
-  DESTINATION="vincent@$CRAWLER1:~/exotic-amazon-pro/$EXOTIC_AMAZON_VERSION/target"
+  DESTINATION="vincent@$TARGET_HOST:~/exotic-amazon-pro/$EXOTIC_AMAZON_VERSION/target"
 fi
 
-# ssh vincent@$CRAWLER1 mkdir -p $DESTINATION
+# ssh vincent@$TARGET_HOST mkdir -p $DESTINATION
 
 echo "rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE $DESTINATION"
 

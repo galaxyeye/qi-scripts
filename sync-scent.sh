@@ -7,7 +7,7 @@ DEV_HOSTNAME_FILE="$BIN/conf/devs"
 MASTER="master"
 
 # script config
-SCENT_HOME=$HOME"/workspace/qiwur-scent"
+SCENT_HOME=$HOME"/workspace/scent-1.10.x"
 SCENT_VERSION=`cat $SCENT_HOME/VERSION`
 
 if ! grep -q "`hostname`" $DEV_HOSTNAME_FILE; then
