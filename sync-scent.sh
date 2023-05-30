@@ -29,7 +29,7 @@ if [ $SYNC_TYPE = "LOCAL" ]; then
   SOURCE="$SCENT_HOME/scent-distribution/target/scent-distribution-$SCENT_VERSION"
 fi
 
-DESTINATION="hduser@$MASTER:~/scent-$SCENT_VERSION/"
+DESTINATION="vincent@$MASTER:~/scent-$SCENT_VERSION/"
 
 if [ -e "$SOURCE" ]; then
   rsync --update -raz --progress --exclude-from $EXCLUDE_FILES $SOURCE $DESTINATION

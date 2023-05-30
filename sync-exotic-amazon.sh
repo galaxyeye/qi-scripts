@@ -44,3 +44,6 @@ else
   exit 1
 fi
 
+echo "Finished at " date
+
+
