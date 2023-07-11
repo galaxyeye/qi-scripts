@@ -20,3 +20,10 @@ if [ "$PID" != "" ] ; then
   kill $SIGNAL $PID
 fi
 
+COUNT=$(jps | grep -c "$PATTERN")
+while [ "$COUNT" -gt 0 ]
+do
+  sleep 1
+  COUNT=$(jps | grep -c "$PATTERN")
+done
+

@@ -44,6 +44,6 @@ else
   exit 1
 fi
 
-echo "Finished at " date
+echo "Finished at" $(date)
 
 
