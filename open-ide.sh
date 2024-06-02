@@ -4,7 +4,7 @@ BIN=$HOME"/bin"
 
 IDE="$1"
 
-usage="Usage: open-ide.sh <phpstorm|webstorm|idea|eclipse>"
+usage="Usage: open-ide.sh <phpstorm|webstorm|pycharm|idea|eclipse>"
 
 # if no args specified, show usage
 if [ $# -eq 0 ]; then
@@ -23,7 +23,7 @@ if [ "$IDE" = "phpstorm" ] ; then
   EXEC_CALL=$PHPSTORM
 elif [ "$IDE" = "webstorm" ] ; then
   EXEC_CALL=$WEBSTORM
-elif [ "$IDE" = "PYCHARM" ] ; then
+elif [ "$IDE" = "pycharm" ] ; then
   EXEC_CALL=$PYCHARM
 elif [ "$IDE" = "idea" ] ; then
   EXEC_CALL=$IDEA
