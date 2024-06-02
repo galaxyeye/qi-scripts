@@ -14,6 +14,7 @@ fi
 
 PHPSTORM="/opt/phpstorm/bin/phpstorm.sh"
 WEBSTORM="/opt/webstorm/bin/webstorm.sh"
+PYCHARM="/opt/pycharm/bin/pycharm.sh"
 IDEA="/opt/idea/bin/idea.sh"
 ECLIPSE="/opt/eclipse/mars/eclipse"
 
@@ -22,6 +23,8 @@ if [ "$IDE" = "phpstorm" ] ; then
   EXEC_CALL=$PHPSTORM
 elif [ "$IDE" = "webstorm" ] ; then
   EXEC_CALL=$WEBSTORM
+elif [ "$IDE" = "PYCHARM" ] ; then
+  EXEC_CALL=$PYCHARM
 elif [ "$IDE" = "idea" ] ; then
   EXEC_CALL=$IDEA
 elif [ "$IDE" = "eclipse" ] ; then
